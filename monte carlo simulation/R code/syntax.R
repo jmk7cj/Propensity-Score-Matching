@@ -24,6 +24,7 @@ library("survey"); library("cobalt"); library("Matching"); library("sjstats");
 rm(list = ls())
 
 # Facets to vary: 7 x 4 x 3 x 2 = 168 conditions
+set.seed(123)
 sims <- 1:1 # 1 replication as example
 knn <- 1:7 # number of nearest neighbors
 sample_size <- c(100, 500, 1000, 5000) # sample size
