@@ -47,7 +47,7 @@ opts <- list(progress = progress)
 #----------------------------------------------------------------------------------------------#
 # Step 2: Generate potential outcomes data, estimate PSM, calculate bias, MSE, etc.
 #----------------------------------------------------------------------------------------------#
-sim_function =
+sim_function <-
 foreach(i = sims, .combine=rbind) %:% 
 foreach(r = knn, .combine=rbind) %:%
 foreach(ss = sample_size, .combine=rbind) %:%
@@ -116,11 +116,11 @@ data <- generateData(n=ss, prob=prop)
 pop_att <- by(data$y1, data$treat, mean)[[2]] - by(data$y0, data$treat, mean)[[2]]
 
 # Estimate propensity scores and match accordingly 
-match = matchit(treat ~ x1+x2+x3+x4, 
+match <- matchit(treat ~ x1+x2+x3+x4, 
 data=data, distance="logit", method="nearest", ratio=r, replace=T, verbose=T) 
 
 # Retain matched units only  
-matched_data = match.data(match)
+matched_data <- match.data(match)
 
 # Use weights as matching with replacement
 est_att <- svydesign(ids=~1, weights=~weights, data=matched_data)
@@ -205,11 +205,11 @@ data <- generateData(n=ss, prob=prop)
 pop_att <- by(data$y1, data$treat, mean)[[2]] - by(data$y0, data$treat, mean)[[2]]
 
 # Estimate propensity scores and match accordingly 
-match = matchit(treat ~ x1+x2+x3+x4+x5+x6+x7+x8+x9+x10, 
+match <- matchit(treat ~ x1+x2+x3+x4+x5+x6+x7+x8+x9+x10, 
 data=data, distance="logit", method="nearest", ratio=r, replace=T, verbose=T) 
 
 # Retain matched units only
-matched_data = match.data(match)
+matched_data <- match.data(match)
 
 # Use weights as matching with replacement
 est_att <- svydesign(ids=~1, weights=~weights, data=matched_data)
@@ -303,12 +303,12 @@ data <- generateData(n=ss, prob=prop)
 pop_att <- by(data$y1, data$treat, mean)[[2]] - by(data$y0, data$treat, mean)[[2]]
 
 # Estimate propensity scores and match accordingly 
-match = matchit(treat ~ x1+x2+x3+x4+x5+x6+x7+x8+x9+x10+
+match <- matchit(treat ~ x1+x2+x3+x4+x5+x6+x7+x8+x9+x10+
                   x11+x12+x13+x14+x15+x16+x17+x18+x19+x20, 
 data=data, distance="logit", method="nearest", ratio=r, replace=T, verbose=T) 
 
 # Retain matched units only
-matched_data = match.data(match)
+matched_data <- match.data(match)
 
 # Use weights as matching with replacement
 est_att <- svydesign(ids=~1, weights=~weights, data=matched_data)
