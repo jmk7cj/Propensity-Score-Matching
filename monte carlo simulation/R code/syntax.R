@@ -24,11 +24,11 @@ library("survey"); library("cobalt"); library("Matching"); library("sjstats");
 rm(list = ls())
 
 # Facets to vary: 7 x 4 x 3 x 2 = 168 conditions
-sims <- 1:10
-knn <- 1:7
-sample_size <- c(100, 500, 1000, 5000)
-covs <- c(4, 10, 20)
-prop_treat <- c(1, 2)
+sims <- 1:1 # 1 replication as example
+knn <- 1:7 # number of nearest neighbors
+sample_size <- c(100, 500, 1000, 5000) # sample size
+covs <- c(4, 10, 20) # number of covariates
+prop_treat <- c(1, 2) # two different proportion of treatment
 
 # Create progress bar for simulation based on all conditions + replications
 total_sim_conditions <- length(unique(sims)) * 
