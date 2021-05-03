@@ -101,7 +101,7 @@ treat <- rbinom(n, 1, p.treat)
 y0 <- 0 + beta*x1 + beta*x2 + beta*x3 + beta*x4 +  rnorm(n, 0, 1)
 
 # Potential outcome for treatment 
-y1 <- 0 + TE*treat + beta*x1 + beta*x2 + beta*x3 + beta*x4 + rnorm(n, 0, 1)
+y1 <- 0 + TE + beta*x1 + beta*x2 + beta*x3 + beta*x4 + rnorm(n, 0, 1)
 
 # Observed outcome
 y_obs <- ifelse(treat==1, y1, y0)
@@ -188,7 +188,7 @@ y0 <- 0 + beta*x1 + beta*x2 + beta*x3 + beta*x4 +
   beta*x5 + beta*x6 + beta*x7 + beta*x8 + beta*x9 + beta*x10 + rnorm(n, 0, 1)
 
 # Potential outcome for treatment
-y1 <- 0 + TE*treat + beta*x1 + beta*x2 + beta*x3 + beta*x4 + 
+y1 <- 0 + TE + beta*x1 + beta*x2 + beta*x3 + beta*x4 + 
   beta*x5 + beta*x6 + beta*x7 + beta*x8 + beta*x9 + beta*x10 + rnorm(n, 0, 1)
 
 # Observed outcome
@@ -282,9 +282,9 @@ y0 <- 0 + beta*x1 + beta*x2 + beta*x3 + beta*x4 +
   rnorm(n, 0, 1)
 
 # Potential outcome for treatment
-y1 <- 0 + TE*treat + beta*x1 + beta*x2 + beta*x3 + beta*x4 + 
+y1 <- 0 + TE + beta*x1 + beta*x2 + beta*x3 + beta*x4 + 
   beta*x5 + beta*x6 + beta*x7 + beta*x8 + beta*x9 + beta*x10 +
-    beta*x11 + beta*x12 + beta*x13 + beta*x14 + beta*x15 +
+  beta*x11 + beta*x12 + beta*x13 + beta*x14 + beta*x15 +
   beta*x16 + beta*x17 + beta*x18 + beta*x19 + beta*x20 +
   rnorm(n, 0, 1)
 
